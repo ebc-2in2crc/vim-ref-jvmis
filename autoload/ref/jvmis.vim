@@ -103,11 +103,7 @@ function! g:ref_source_webdict_sites.jvm_instruction_set.filter(output)
       endif
     endif
 
-    if has_key(s:sections, line)
-      let line = "\n" . line
-    else
-      let line = "\t" . line
-    endif
+    let line = (has_key(s:sections, line) ? "\n" : "\t") . line
     call add(result, line)
   endfor
 
